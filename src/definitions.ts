@@ -1,3 +1,6 @@
 export interface CustomCameraPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  startCamera(): Promise<void>;
+  startRecording(): Promise<void>;
+  takePictureWithEffect(): Promise<void>;
+  stopRecording(): Promise<{ videoPath: string, images: string[] }>;
 }
