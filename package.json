@@ -1,6 +1,6 @@
 {
   "name": "capacitor-custom-camera-plugin",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Custom Camera Plugin",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

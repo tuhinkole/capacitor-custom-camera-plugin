@@ -12,8 +12,9 @@ import androidx.camera.core.*;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.video.*;
 import androidx.camera.view.PreviewView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.camera.video.FileOutputOptions;
+
 
 import com.google.common.util.concurrent.ListenableFuture;
 
@@ -97,17 +98,18 @@ public class CustomCameraActivity extends AppCompatActivity {
         isRecording = true;
         recordButton.setText("Stop");
 
-        File videoFile = new File(getExternalFilesDir(null), "recorded_" + System.currentTimeMillis() + ".mp4");
-        FileOutputOptions outputOptions = FileOutputOptions.builder(videoFile).build();
+      File videoFile = new File(getExternalFilesDir(null), "recorded_" + System.currentTimeMillis() + ".mp4");
 
-        currentRecording = videoCapture.getOutput()
-                .prepareRecording(this, outputOptions)
-                .start(ContextCompat.getMainExecutor(this), videoRecordEvent -> {
-                    if (videoRecordEvent instanceof VideoRecordEvent.Finalize) {
-                        Log.d("CustomCamera", "Video saved: " +
-                                ((VideoRecordEvent.Finalize) videoRecordEvent).getOutputResults().getOutputUri());
-                    }
-                });
+      FileOutputOptions outputOptions = new FileOutputOptions.Builder(videoFile).build();
+
+      currentRecording = videoCapture.getOutput()
+        .prepareRecording(this, outputOptions)
+        .start(ContextCompat.getMainExecutor(this), videoRecordEvent -> {
+          if (videoRecordEvent instanceof VideoRecordEvent.Finalize) {
+            Log.d("Camera", "Saved: " +
+              ((VideoRecordEvent.Finalize) videoRecordEvent).getOutputResults().getOutputUri());
+          }
+        });
     }
 
     private void stopRecording() {

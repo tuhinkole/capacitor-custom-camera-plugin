@@ -1,6 +1,7 @@
 package com.mycompany.plugins.example;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 
 public class CustomCamera {

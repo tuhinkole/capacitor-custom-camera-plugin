@@ -5,7 +5,7 @@ Custom Camera Plugin
 ## Install
 
 ```bash
-npm install capacitor-custom-camera
+npm install capacitor-custom-camera-plugin
 npx cap sync
 ```
 
