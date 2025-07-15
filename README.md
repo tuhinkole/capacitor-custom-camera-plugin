@@ -13,24 +13,50 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`startCamera()`](#startcamera)
+* [`startRecording()`](#startrecording)
+* [`takePictureWithEffect()`](#takepicturewitheffect)
+* [`stopRecording()`](#stoprecording)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### startCamera()
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+startCamera() => Promise<void>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+--------------------
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+### startRecording()
+
+```typescript
+startRecording() => Promise<void>
+```
+
+--------------------
+
+
+### takePictureWithEffect()
+
+```typescript
+takePictureWithEffect() => Promise<void>
+```
+
+--------------------
+
+
+### stopRecording()
+
+```typescript
+stopRecording() => Promise<{ videoPath: string; images: string[]; }>
+```
+
+**Returns:** <code>Promise&lt;{ videoPath: string; images: string[]; }&gt;</code>
 
 --------------------
 
